@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const esbuild = require('esbuild')
 const path = require('path')
 const yargs = require('yargs')
