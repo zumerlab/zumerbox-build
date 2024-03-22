@@ -7,7 +7,9 @@
   "main": "./bin/index.js",
   "bin": "./bin/index.js",
   "scripts": {
-    "start": "./bin/index.js"
+    "start": "./bin/index.js",
+    "version": "npx @tinybox/release",
+    "postversion": "npx @tinybox/changelog"
   },
   "dependencies": {
     "esbuild": "^0.20.1",
