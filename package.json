@@ -7,9 +7,8 @@
   "main": "./bin/index.js",
   "bin": "./bin/index.js",
   "scripts": {
-    "start": "./bin/index.js",
-    "version": "npx @tinybox/release",
-    "postversion": "npx @tinybox/changelog"
+    "release": "npx @tinybox/release",
+    "postversion": "npx @tinybox/changelog && git add CHANGELOG.md && git commit -m \"Bumped version\" && git push --follow-tags"
   },
   "dependencies": {
     "esbuild": "^0.20.1",
