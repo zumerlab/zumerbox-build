@@ -1,15 +1,26 @@
 {
-  "name": "@tinybox/build",
+  "name": "@zumerbox/build",
   "version": "0.1.1",
   "description": "",
   "author": "Juan Martin Muda",
   "license": "MIT",
   "main": "./bin/index.js",
-  "bin": "./bin/index.js",
-  "scripts": {
-    "release": "npx @tinybox/release",
-    "postversion": "npx @tinybox/changelog && git add CHANGELOG.md && git commit -m \"Bumped version\" && git push --follow-tags"
+  "bin": {
+    "build": "bin/index.js"
   },
+  "scripts": {
+    "start": "node bin/index.js",
+    "release": "npx @zumerbox/release",
+    "postversion": "npx @zumerbox/changelog && git add CHANGELOG.md && git commit -m \"Bumped version\" && git push --follow-tags"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zumerlab/zumerbox-build.git"
+  },
+  "bugs": {
+    "url": "https://github.com/zumerlab/zumerbox-build/issues"
+  },
+  "homepage": "https://github.com/zumerlab/zumerbox-build#readme",
   "dependencies": {
     "esbuild": "^0.20.1",
     "esbuild-plugin-sass": "^1.0.1",
