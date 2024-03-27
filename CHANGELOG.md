@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. 
 
+#### [v0.3.0](https://github.com/zumerlab/zumerbox-build/compare/v0.2.0...v0.3.0)
+
+> 27 March 2024
+
+- feat: add options to bundle code [`b3b8d57`](https://github.com/zumerlab/zumerbox-build/commit/b3b8d571fa0eff711dc181a6f0410cac38bf5831)
+- Bumped version [`4785829`](https://github.com/zumerlab/zumerbox-build/commit/4785829190d0dee78d19d0e39730c222c2597de8)
+
 #### [v0.2.0](https://github.com/zumerlab/zumerbox-build/compare/v0.1.1...v0.2.0)
 
 > 25 March 2024
