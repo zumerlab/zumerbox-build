@@ -27,7 +27,7 @@ const argv = yargs
     alias: 'm',
     describe: 'Generate minified output files',
     type: 'boolean',
-    default: false
+    default: true
   })
   .option('outdir', {
     alias: 'd',
@@ -45,19 +45,29 @@ const argv = yargs
   .alias('h', 'help').argv;
 
 // Read package.json from project directory
-const packageJsonPath = path.resolve(__dirname, '../package.json');
+const packageJsonPath = './package.json';
 const pkg = require(packageJsonPath);
 
 // Use package name from package.json if no name provided
 const bundlerName = argv.name || pkg.name || 'MyBundler';
 
-const setBanner = () => `
+let setBanner
+if (pkg) {
+  setBanner = () => `
 /*
-* ${pkg.name}
+* ${bundlerName}
 * v.${pkg.version}
 * Author ${pkg.author}
 * License ${pkg.license}
 **/`;
+  
+} else {
+  setBanner = () => `
+/*
+* ${bundlerName}
+**/`;
+
+}
 
 // Configuration for esbuild
 const options = {
