@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. 
 
+#### [v0.4.0](https://github.com/zumerlab/zumerbox-build/compare/v0.3.0...v0.4.0)
+
+> 4 April 2024
+
+- Fix package.json path and set minify true as default [`a12d2fb`](https://github.com/zumerlab/zumerbox-build/commit/a12d2fbd10683ea03727e8ef6b1a2ab856fc1653)
+- Bumped version [`05bb751`](https://github.com/zumerlab/zumerbox-build/commit/05bb75106ed737dc2c3f48c1eafadf68a0ee3552)
+
 #### [v0.3.0](https://github.com/zumerlab/zumerbox-build/compare/v0.2.0...v0.3.0)
 
 > 27 March 2024
