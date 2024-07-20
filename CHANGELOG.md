@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. 
 
+#### [v0.5.0](https://github.com/zumerlab/zumerbox-build/compare/v0.4.0...v0.5.0)
+
+> 20 July 2024
+
+- Create LICENSE [`56587ef`](https://github.com/zumerlab/zumerbox-build/commit/56587efbe4808a050ee2d4a2fbd11a0c500ce8d7)
+- fix package.json path [`7073add`](https://github.com/zumerlab/zumerbox-build/commit/7073add3c7fc6cb02ba5baeabc04c6043fe9d1a7)
+- Bumped version [`ee97aa4`](https://github.com/zumerlab/zumerbox-build/commit/ee97aa4d176f400dd05576e05c9b7ac39e3d4e57)
+
 #### [v0.4.0](https://github.com/zumerlab/zumerbox-build/compare/v0.3.0...v0.4.0)
 
 > 4 April 2024
