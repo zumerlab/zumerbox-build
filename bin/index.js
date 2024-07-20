@@ -41,11 +41,18 @@ const argv = yargs
     type: 'string',
     default: 'browser'
   })
+  .option('comments', {
+    alias: 'c',
+    describe: 'Keep comments',
+    type: 'boolean',
+    default: false
+  })
   .help('h')
   .alias('h', 'help').argv;
 
+
 // Read package.json from project directory
-const packageJsonPath = './package.json';
+const packageJsonPath = path.resolve(process.cwd(), './package.json');
 const pkg = require(packageJsonPath);
 
 // Use package name from package.json if no name provided
@@ -79,7 +86,7 @@ const options = {
     css: setBanner()
   },
   outdir: argv.outdir,
-  metafile: true,
+  legalComments: argv.comments ? 'inline' : 'none',
   plugins: [sassPlugin()],
   platform: argv.platform
 };
