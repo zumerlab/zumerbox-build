@@ -48,7 +48,7 @@ const argv = yargs
     default: false
   })
   .option('module', {
-    alias: 'm',
+    alias: 'x',
     describe: 'Set mjs extension',
     type: 'boolean',
     default: false
@@ -94,12 +94,15 @@ const options = {
   outdir: argv.outdir,
   legalComments: argv.comments ? 'inline' : 'none',
   plugins: [sassPlugin()],
-  platform: argv.platform,
-  outExtension: argv.module ? { '.js': '.mjs' } : null
+  platform: argv.platform
 };
 
 if (argv.js) {
   options.entryPoints.push(argv.js);
+}
+
+if (argv.module) {
+  options.outExtension = { '.js': '.mjs' }
 }
 
 
@@ -115,10 +118,12 @@ const optionsMinify = {
   metafile: true,
   minify: true,
   plugins: [sassPlugin()],
-  platform: argv.platform,
-  outExtension: argv.module ? { '.js': '.mjs' } : null
+  platform: argv.platform
 };
 
+if (argv.module) {
+  optionsMinify.outExtension = { '.js': '.mjs' }
+}
 
 // Run esbuild
 esbuild

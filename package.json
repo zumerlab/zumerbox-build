@@ -9,7 +9,6 @@
     "build": "bin/index.js"
   },
   "scripts": {
-    "start": "node bin/index.js",
     "bump": "npx @zumerbox/bump",
     "postbump": "npx @zumerbox/changelog && git add CHANGELOG.md && git commit -m \"Bumped version\" && git push --follow-tags"
   },
