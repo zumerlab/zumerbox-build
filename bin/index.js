@@ -101,8 +101,8 @@ if (argv.js) {
 }
 
 if (argv.extension) {
-  options.outExtension = argv.extension;
-  optionsMinify.outExtension = argv.extension;
+  options.outExtension ={ '.js' :  argv.extension};
+  optionsMinify.outExtension = { '.js' :  argv.extension};
 }
 
 
