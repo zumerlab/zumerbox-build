@@ -47,10 +47,11 @@ const argv = yargs
     type: 'boolean',
     default: false
   })
-  .option('extension', {
-    alias: 'ext',
-    describe: 'Set extension',
-    type: 'string'
+  .option('module', {
+    alias: 'msj',
+    describe: 'Set mjs extension',
+    type: 'boolean',
+    default: false
   })
   .help('h')
   .alias('h', 'help').argv;
@@ -100,9 +101,9 @@ if (argv.js) {
   options.entryPoints.push(argv.js);
 }
 
-if (argv.extension) {
-  options.outExtension ={ '.js' :  argv.extension};
-  optionsMinify.outExtension = { '.js' :  argv.extension};
+if (argv.module) {
+  options.outExtension = { '.js': '.mjs' }
+  optionsMinify.outExtension = { '.js': '.mjs' }
 }
 
 
