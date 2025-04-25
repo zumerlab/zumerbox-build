@@ -22,9 +22,9 @@
   },
   "homepage": "https://github.com/zumerlab/zumerbox-build#readme",
   "dependencies": {
-    "esbuild": "^0.20.1",
+    "esbuild": "^0.25.3",
     "esbuild-plugin-sass": "^1.0.1",
-    "sass": "^1.71.1",
+    "sass": "^1.87.0",
     "yargs": "^17.7.2"
   }
 }

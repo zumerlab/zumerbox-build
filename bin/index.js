@@ -37,7 +37,7 @@ const argv = yargs
   })
   .option('platform', {
     alias: 'p',
-    describe: 'Target platform for esBuild (e.g., browser, node)',
+    describe: 'Target platform for esBuild (e.g., browser, node, neutral)',
     type: 'string',
     default: 'browser'
   })
@@ -46,6 +46,11 @@ const argv = yargs
     describe: 'Keep comments',
     type: 'boolean',
     default: false
+  })
+  .option('extension', {
+    alias: 'ext',
+    describe: 'Set extension',
+    type: 'string'
   })
   .help('h')
   .alias('h', 'help').argv;
@@ -94,6 +99,12 @@ const options = {
 if (argv.js) {
   options.entryPoints.push(argv.js);
 }
+
+if (argv.extension) {
+  options.outExtension = argv.extension;
+  optionsMinify.outExtension = argv.extension;
+}
+
 
 if (argv.scss) {
   options.entryPoints.push(argv.scss);
