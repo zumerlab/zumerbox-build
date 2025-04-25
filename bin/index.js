@@ -94,15 +94,12 @@ const options = {
   outdir: argv.outdir,
   legalComments: argv.comments ? 'inline' : 'none',
   plugins: [sassPlugin()],
-  platform: argv.platform
+  platform: argv.platform,
+  outExtension: argv.module ? { '.js': '.mjs' } : null
 };
 
 if (argv.js) {
   options.entryPoints.push(argv.js);
-}
-
-if (argv.module) {
-  options.outExtension = { '.js': '.mjs' }
 }
 
 
@@ -118,12 +115,10 @@ const optionsMinify = {
   metafile: true,
   minify: true,
   plugins: [sassPlugin()],
-  platform: argv.platform
+  platform: argv.platform,
+  outExtension: argv.module ? { '.js': '.mjs' } : null
 };
 
-if (argv.module) {
-  optionsMinify.outExtension = { '.js': '.mjs' }
-}
 
 // Run esbuild
 esbuild
