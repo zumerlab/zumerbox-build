@@ -48,7 +48,7 @@ const argv = yargs
     default: false
   })
   .option('module', {
-    alias: 'msj',
+    alias: 'm',
     describe: 'Set mjs extension',
     type: 'boolean',
     default: false
@@ -103,7 +103,6 @@ if (argv.js) {
 
 if (argv.module) {
   options.outExtension = { '.js': '.mjs' }
-  optionsMinify.outExtension = { '.js': '.mjs' }
 }
 
 
@@ -121,6 +120,10 @@ const optionsMinify = {
   plugins: [sassPlugin()],
   platform: argv.platform
 };
+
+if (argv.module) {
+  optionsMinify.outExtension = { '.js': '.mjs' }
+}
 
 // Run esbuild
 esbuild
