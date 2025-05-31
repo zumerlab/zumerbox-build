@@ -108,7 +108,7 @@ if (argv.js) {
 }
 
 if (argv.global) {
-  options.globalName.push(bundlerName);
+  options.globalName = bundlerName;
 }
 
 if (argv.module) {
@@ -132,7 +132,7 @@ const optionsMinify = {
 };
 
 if (argv.global) {
-  optionsMinify.globalName.push(bundlerName);
+  optionsMinify.globalName = bundlerName;
 }
 if (argv.module) {
   optionsMinify.outExtension = { '.js': '.mjs' }
