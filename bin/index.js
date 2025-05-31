@@ -53,6 +53,12 @@ const argv = yargs
     type: 'boolean',
     default: false
   })
+  .option('global', {
+    alias: 'g',
+    describe: 'Set global exposure',
+    type: 'boolean',
+    default: false
+  })
   .help('h')
   .alias('h', 'help').argv;
 
@@ -101,6 +107,10 @@ if (argv.js) {
   options.entryPoints.push(argv.js);
 }
 
+if (argv.global) {
+  options.globalName.push(bundlerName);
+}
+
 if (argv.module) {
   options.outExtension = { '.js': '.mjs' }
 }
@@ -121,6 +131,9 @@ const optionsMinify = {
   platform: argv.platform
 };
 
+if (argv.global) {
+  optionsMinify.globalName.push(bundlerName);
+}
 if (argv.module) {
   optionsMinify.outExtension = { '.js': '.mjs' }
 }
