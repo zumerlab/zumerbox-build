@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. 
 
+#### [v0.8.4](https://github.com/zumerlab/zumerbox-build/compare/v0.8.3...v0.8.4)
+
+> 31 May 2025
+
+- Bumped version [`2466f28`](https://github.com/zumerlab/zumerbox-build/commit/2466f282854ff709f7a5ecd405130c3b8c650777)
+- fix global name [`dc9b43a`](https://github.com/zumerlab/zumerbox-build/commit/dc9b43a078d35a6366d69a9f967af9bc4a18486c)
+
 #### [v0.8.3](https://github.com/zumerlab/zumerbox-build/compare/v0.8.2...v0.8.3)
 
 > 31 May 2025
