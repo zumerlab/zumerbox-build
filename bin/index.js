@@ -59,9 +59,14 @@ const argv = yargs
     type: 'boolean',
     default: false
   })
+  .option('target', {
+    alias: 't',
+    describe: 'Target JavaScript version (e.g., es2015, es2017, esnext)',
+    type: 'string',
+    default: 'esnext'
+  })
   .help('h')
   .alias('h', 'help').argv;
-
 
 // Read package.json from project directory
 const packageJsonPath = path.resolve(process.cwd(), './package.json');
@@ -70,7 +75,7 @@ const pkg = require(packageJsonPath);
 // Use package name from package.json if no name provided
 const bundlerName = argv.name || pkg.name || 'MyBundler';
 
-let setBanner
+let setBanner;
 if (pkg) {
   setBanner = () => `
 /*
@@ -78,14 +83,14 @@ if (pkg) {
 * v.${pkg.version}
 * Author ${pkg.author}
 * License ${pkg.license}
-**/`;
-  
+**/
+`;
 } else {
   setBanner = () => `
 /*
 * ${bundlerName}
-**/`;
-
+**/
+`;
 }
 
 // Configuration for esbuild
@@ -100,7 +105,8 @@ const options = {
   outdir: argv.outdir,
   legalComments: argv.comments ? 'inline' : 'none',
   plugins: [sassPlugin()],
-  platform: argv.platform
+  platform: argv.platform,
+  target: argv.target,
 };
 
 if (argv.js) {
@@ -112,9 +118,8 @@ if (argv.global) {
 }
 
 if (argv.module) {
-  options.outExtension = { '.js': '.mjs' }
+  options.outExtension = { '.js': '.mjs' };
 }
-
 
 if (argv.scss) {
   options.entryPoints.push(argv.scss);
@@ -128,23 +133,25 @@ const optionsMinify = {
   metafile: true,
   minify: true,
   plugins: [sassPlugin()],
-  platform: argv.platform
+  platform: argv.platform,
+  target: argv.target,
 };
 
 if (argv.global) {
   optionsMinify.globalName = bundlerName;
 }
+
 if (argv.module) {
-  optionsMinify.outExtension = { '.js': '.mjs' }
+  optionsMinify.outExtension = { '.js': '.mjs' };
 }
 
 // Run esbuild
 esbuild
   .build(options)
   .then(() =>
-    argv.minify ?
-      esbuild.build(optionsMinify)
-    : console.log('⚡ Minify skipped ⚡')
+    argv.minify
+      ? esbuild.build(optionsMinify)
+      : console.log('⚡ Minify skipped ⚡')
   )
   .then(() => console.log('⚡ Files compiled! ⚡ '))
   .catch(() => process.exit(1));
