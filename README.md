@@ -1,5 +1,8 @@
 # @zumerbox/build
 
+> [!WARNING]
+> **DEPRECATED.** This package is no longer maintained.
+
 The Zumerbox build tool is a command-line utility designed to bundle and compile JavaScript and SCSS files into distributable formats. It leverages the esbuild library for efficient bundling and minification, providing developers with a streamlined workflow for frontend development.
 
 Refer to the [ZumerBox bundle](https://github.com/zumerlab/zumerbox) for more information and tools.
